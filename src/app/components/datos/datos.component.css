@@ -1,0 +1,16 @@
+.color_fondo{
+    background-color: #D9D9D9 !important;
+  }
+
+.mat-drawer-content{
+    background-color: white !important;
+}
+
+.margen{
+  padding: 5px;
+  margin: 20px;
+}
+
+.sinborde{
+  border: 0px;
+}

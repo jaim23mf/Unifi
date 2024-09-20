@@ -1,0 +1,17 @@
+<div *ngFor="let item of datos">
+    <mat-expansion-panel class="color_fondo margen mat-elevation-z0 sinborde">
+        <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{item.name}}
+        </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <highcharts-chart  class="color_fondo"
+        [Highcharts]="Highcharts"
+        [options]="getdata(item.id)"
+      
+        style="width: 100%; height: 400px; display: block;"
+      ></highcharts-chart>
+    
+    </mat-expansion-panel>
+</div>

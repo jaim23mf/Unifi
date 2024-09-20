@@ -1,0 +1,14 @@
+{
+    "geoserver_url": "http://10.0.0.64:12092/geoserver/wms",
+    "baseLayer": "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/",
+    "baseAtrib":"&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors &copy; <a href='https://carto.com/attributions'>CARTO</a>",
+    "geo_user": "admin",
+    "geo_pass" : "geoserver",
+    "cesiumToken" : "cesiumToken here",
+    "api_swagger" : "http://10.0.0.57:12155",
+    "longitude":  14.26811,
+    "latitude":40.85216,
+    "height": 200000,
+    "minimunZoomDistance":2000,
+    "maximunZoomDistance":11236857.418733908
+}

@@ -1,0 +1,23 @@
+
+    .mat-mdc-progress-spinner { 
+        --mdc-circular-progress-active-indicator-color: black; 
+        background-color: transparent;
+    }
+
+    .uploader-status ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+        stroke: #000000;
+        background-color: transparent;
+    }
+
+    .mat-mdc-dialog-container
+    .mdc-dialog__container
+    .mat-mdc-dialog-surface {
+    background-color: red;
+  }
+
+  .hello
+.mat-mdc-dialog-container
+.mdc-dialog__container
+.mat-mdc-dialog-surface {
+background-color: red;
+}

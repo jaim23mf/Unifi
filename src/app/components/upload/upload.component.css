@@ -1,0 +1,96 @@
+
+.contenedor-layer{
+    top:40px;
+    display: flex;
+    position: absolute;
+    height: 100%;
+    background-color: white;
+}
+
+
+.example-form {
+  width: 100%;
+  min-width: 115px;
+  max-width: 379px;
+  width: 100%;
+  display: grid;
+  justify-content: center;
+}
+
+.example-full-width {
+  width: 100%;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+
+.izquierda{ 
+    width: 500px;
+}
+
+.derecha{
+  width: 85%;
+  height: 100%;
+  margin: 25px;
+}
+
+
+.dropZone{
+  justify-content: center;
+  margin: 19px;
+    margin-left: 10px;
+    margin-top: 26px;
+    height: 475px;
+    border: 1px solid #898989;
+}
+
+:host ::ng-deep .mdc-text-field--outlined {
+  --mdc-outlined-text-field-container-shape: 10px;
+}
+
+.cesium-viewer{
+  border-radius: 15px !important;
+}
+
+.container_info_layer{
+  display: grid;
+}
+.header_info_layer{
+  display: block;
+  width: 100%;
+  height: 25px;
+}
+
+.boton{
+  width: fit-content;
+  float: right;
+  top: -53px;
+}
+
+.dpbtn{
+  height: 35px;
+    width: 125px;
+    font-size: 10px;
+    margin-top: 10px;
+    padding: 0px;
+}
+
+.negrita{
+  font-weight: bold;
+}
+
+::ng-deep .mat-mdc-text-field-wrapper {
+  max-height: 35px;
+}
+
+::ng-deep .mat-mdc-form-field {
+  max-height: 45px;
+}
+
+::ng-deep .mat-mdc-form-field-infix {
+  padding: 7px !important;
+}
+
+::ng-deep .cesium-viewer {
+  border-radius: 15px;
+}

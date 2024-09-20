@@ -1,0 +1,203 @@
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<mat-drawer-container  class="map-container">
+    <mat-drawer mode="side" class="color_fondo" opened>
+        <div  class="botones_arriba color_fondo"> 
+            <button mat-flat-button color="success" class="black" *ngIf="!isLayer" (click)="buttonClick(1)"><mat-icon>add</mat-icon>Layers</button>
+            <button mat-flat-button color="success" class="black" *ngIf="!isUpload" (click)="buttonClick(2)"><mat-icon>file_upload</mat-icon>Styles</button> 
+            <button mat-flat-button color="success" class="black" *ngIf="!isDatos" (click)="buttonClick(3)"><mat-icon>dataset</mat-icon>Data</button>
+            <button mat-flat-button color="success" class="black" *ngIf="!isMap" (click)="buttonClick(0)"><mat-icon>map</mat-icon>Map</button>
+        </div>
+ 
+        <!--Div comun a layer , upload y mapa-->
+        <div *ngIf="isLayer || isMap" class="color_fondo">
+            <div class="submenu"> 
+            <p>Layer activi:</p> 
+            <div style="display: flex;
+            float: right;
+            margin-left: 80px;">
+            <button class="transparente sub-dos"><mat-icon class="small-icon">remove</mat-icon><p>Rimuovi tutti</p> </button>
+            <button class="transparente sub-uno"(click)="accordion.closeAll()"><span class="material-symbols-outlined small-icon">
+              collapse_all
+              </span>
+              <p>Chiudi tutti</p>
+            </button>
+          </div>
+            <!--<button hidden (click)="set3d()">Test 3D</button>
+            <button hidden (click)="set2d()">Test 2D</button>-->
+          </div>
+
+            <div
+            cdkDropList
+            [cdkDropListData]="layers"
+            class="example-list color_fondo"
+            (cdkDropListDropped)="drop($event)">
+            <mat-accordion #accordion="matAccordion" multi>
+                
+            <div class="example-box color_fondo" *ngFor="let item of layers">
+                <mat-expansion-panel  class="mat-elevation-z0 acordeon color_fondo">
+                <mat-expansion-panel-header cdkDrag>
+                <mat-panel-title>
+                <div class="title">        
+                
+                  <button class="transparente ojo" *ngIf="item.visible" (click)="setVisibility(false,item);item.visible=false;$event.stopPropagation();"><mat-icon>visibility</mat-icon></button> 
+                  <button class="transparente ojo" *ngIf="!item.visible" (click)="setVisibility(true,item);item.visible=true;$event.stopPropagation();"><mat-icon>visibility_off</mat-icon></button>
+                  <p>Title: {{item.name}}</p>   
+                  <button class="transparente remove" (click)="removeItem(item);$event.stopPropagation();" ><mat-icon>remove</mat-icon></button>
+                </div>
+                </mat-panel-title>
+                </mat-expansion-panel-header>
+               <!-- <mat-card >
+                  <mat-card-content style="display: flex;">
+                    <div class="card-slider">
+                      <p >Opacity</p>
+                      <p>{{item.opacity}}%</p>
+                      <mat-slider min="0" max="100" step="1" >
+                      <input matSliderThumb [(ngModel)]="item.opacity">
+                      </mat-slider>
+                    </div>
+                </mat-card-content>
+              </mat-card>-->
+
+                  <!--<mat-card>
+                    <mat-card-content style="display: flex;">
+                      <div class="card-slider">
+                      <p>Profunditá</p>
+                      <p>{{item.depth}}m</p>
+                      <mat-slider>
+                        <input matSliderThumb [(ngModel)]="item.depth">
+                      </mat-slider>
+                    </div>
+                  </mat-card-content>
+                  </mat-card>
+                <div> <p>Data ..... TODO </p></div>      -->
+
+                <p>Workspace: {{item.workspace}}</p>   
+
+
+                </mat-expansion-panel>
+            </div>
+            </mat-accordion>
+          </div>
+
+        </div>
+        <!-- fin div comun-->
+
+        <!-- Div para ESTILOS -->
+
+        <div *ngIf="isUpload" class="color_fondo">
+          <div class="submenu"> 
+          <p>Styles:</p> 
+          <div style="display: flex;
+          float: right;
+          margin-left: 80px;">
+          <button class="transparente sub-dos"><mat-icon class="small-icon">remove</mat-icon><p>Rimuovi tutti</p> </button>
+          <button class="transparente sub-uno"(click)="accordion.closeAll()"><span class="material-symbols-outlined small-icon">
+            collapse_all
+            </span>
+            <p>Chiudi tutti</p>
+          </button>
+        </div>
+          <!--<button hidden (click)="set3d()">Test 3D</button>
+          <button hidden (click)="set2d()">Test 2D</button>-->
+        </div>
+
+          <div
+          cdkDropList
+          [cdkDropListData]="styles"
+          class="example-list color_fondo"
+          (cdkDropListDropped)="drop($event)">
+          <mat-accordion #accordion="matAccordion" multi>
+              
+          <div class="example-box color_fondo" *ngFor="let item of styles">
+              <mat-expansion-panel  class="mat-elevation-z0 acordeon color_fondo" >
+              <mat-expansion-panel-header cdkDrag>
+              <mat-panel-title>
+              <div class="title">        
+              
+                <!--<button class="transparente ojo" *ngIf="item.visible" (click)="setVisibility(false);item.visible=false;$event.stopPropagation();"><mat-icon>visibility</mat-icon></button> 
+                <button class="transparente ojo" *ngIf="!item.visible" (click)="setVisibility(true);item.visible=true;$event.stopPropagation();"><mat-icon>visibility_off</mat-icon></button>-->
+                <p>Title: {{item.name}}</p>   
+                <button class="transparente remove" (click)="removeItem(item);$event.stopPropagation();" ><mat-icon>remove</mat-icon></button>
+              </div>
+              </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div> <p>Description ..... TODO </p></div> 
+              </mat-expansion-panel>
+          </div>
+          </mat-accordion>
+        </div>
+
+      </div>
+        <!-- FIN DIV ESTILOS-->
+
+        <!--Div solo para dati -->
+
+        <div *ngIf="isDatos" class="color_fondo">
+          <div class="submenu_mapa"> 
+            <div *ngIf="isDatos" appCesium class="minimapa"></div>
+          </div>
+
+
+          <div
+          cdkDropList
+          [cdkDropListData]="layers"
+          class="example-list color_fondo"
+          (cdkDropListDropped)="drop($event)">
+          <mat-accordion #accordion="matAccordion" multi>
+              
+          <div class="example-box color_fondo" *ngFor="let item of datos">
+              <mat-expansion-panel  class="mat-elevation-z0 acordeon color_fondo" >
+              <mat-expansion-panel-header cdkDrag>
+              <mat-panel-title>
+              <div class="title">        
+              
+                <button class="transparente ojo" *ngIf="item.visible" (click)="setVisibility(false,null);item.visible=false;$event.stopPropagation();"><mat-icon>visibility</mat-icon></button> 
+                <button class="transparente ojo" *ngIf="!item.visible" (click)="setVisibility(true,null);item.visible=true;$event.stopPropagation();"><mat-icon>visibility_off</mat-icon></button>
+                <p>Title: {{item.name}}</p>   
+                <button class="transparente remove" (click)="removeItem(item);$event.stopPropagation();" ><mat-icon>remove</mat-icon></button>
+              </div>
+              </mat-panel-title>
+              </mat-expansion-panel-header>
+             
+              <div> 
+                <!-- Acordeon MEETADATOS-->
+                <mat-expansion-panel class="meta">
+                <mat-expansion-panel-header>
+                <mat-panel-title>
+                Metadati
+                </mat-panel-title>
+                </mat-expansion-panel-header>
+                <p>Coordinate</p>
+                <p> Lat .... Long ...</p>
+                <p>Titolo dei dato</p>
+                <p>asdasd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asda sd asd </p>
+                </mat-expansion-panel>
+                <!-- Fin Acordeon Metadatos-->
+                <!--Acordeon Datos-->
+                <mat-expansion-panel class="meta">
+                  <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Dati
+                  </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <p> Umiditá</p>
+                  <p>Temperatura</p>
+                  </mat-expansion-panel>
+                <!-- Fin Acordeon datos-->
+              </div>      
+              </mat-expansion-panel>
+          </div>
+          </mat-accordion>
+        </div>
+
+      </div>
+        <!-- Fin div de dati -->
+    </mat-drawer>
+    <mat-drawer-content style="margin-left: 503px;">
+        <div [hidden]="!isMap" appCesium class="mapa"></div>
+        <app-layer *ngIf="isLayer" class="hidden"></app-layer>
+        <app-upload *ngIf="isUpload"></app-upload>
+        <app-datos *ngIf="isDatos"></app-datos>
+    </mat-drawer-content>
+  </mat-drawer-container>

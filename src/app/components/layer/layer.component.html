@@ -1,0 +1,145 @@
+<div class="titulo-negro">
+<p class="titulo-p">Tutti layer</p>
+</div>
+
+<div class="contenedor-layer">
+     <!--<div class="izquierda">
+
+        <form class="example-form">
+            <mat-form-field appearance="outline" class="example-full-width">
+                <svg xmlns="http://www.w3.org/2000/svg" class="svg_icon bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path></svg>
+              <input matInput type="search" placeholder="Cerca layer...">
+            </mat-form-field>
+        </form>
+        <mat-accordion #accordion="matAccordion" multi>
+                
+            <div class="example-box color_fondo" *ngFor="let item of listaGrupos">
+                <mat-expansion-panel  class="mat-elevation-z0 acordeon color_fondo margen" >
+                <mat-expansion-panel-header cdkDrag>
+                <mat-panel-title>
+                <div class="title">        
+                  <p>Title: {{item.nombre}}</p>   
+                </div>
+                </mat-panel-title>
+                </mat-expansion-panel-header>
+<!-- SubGrupos
+<mat-accordion #accordion="matAccordion" multi>
+                
+    <div class="example-box color_fondo" *ngFor="let sub_item of item.sub">
+        <mat-expansion-panel  class="mat-elevation-z0 acordeon color_fondo sub_margen" >
+        <mat-expansion-panel-header cdkDrag>
+        <mat-panel-title>
+        <div class="title">        
+          <p>Title: {{sub_item.nombre}}</p>   
+        </div>
+        </mat-panel-title>
+        </mat-expansion-panel-header>
+<!--Layers 
+<div class="example-box color_fondo sub_layer" *ngFor="let layer_item of sub_item.layers">
+
+    <div class="title title_sub">        
+      <p>Title: {{layer_item.nombre}}</p>   
+      <mat-icon class="add_icon">add</mat-icon>
+    </div>
+
+</div>
+        
+<!-- fin layers
+        </mat-expansion-panel>
+    </div>
+    </mat-accordion>
+
+<!-- Fin subgrupo
+                </mat-expansion-panel>
+            </div>
+            </mat-accordion>
+          
+
+     </div>
+    -->
+    <div class="izquierda">
+        <ngx-dropzone (change)="onSelect($event)" class="dropZone">
+            <ngx-dropzone-label><div class="dragPlace"><span class="material-symbols-outlined">
+                upload
+                </span>
+            <p>Drag and drop</p>
+            </div></ngx-dropzone-label>
+            <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+            </ngx-dropzone-preview>
+        </ngx-dropzone>
+
+
+       
+
+     </div>
+     <div class="derecha">
+        <div  appCesium class="mapa"></div>
+
+        <div class="container_info_layer">
+            <!--<div class="header_info_layer">-->
+              <div class="sub_izq">
+              <form class="example-form">
+                <mat-form-field class="example-full-width">
+                  <mat-label>Title*</mat-label>
+                  <input matInput [(ngModel)]="title" name="title" >
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <mat-label>Name*</mat-label>
+                  <input matInput [(ngModel)]="name" name="name" >
+                </mat-form-field>
+                <!--<mat-form-field class="example-full-width">
+                  <mat-label>Store*</mat-label>
+                  <input matInput [(ngModel)]="store" name="name" >
+                </mat-form-field>--->
+                <mat-form-field class="example-full-width">
+                  <mat-label>Description</mat-label>
+                  <textarea matInput [(ngModel)]="description" name="description"></textarea>
+                </mat-form-field>
+              </form>
+            </div>
+            <div class="sub_derecha">
+              <div class="select">
+                <mat-form-field class="select_elem">
+                <mat-label>Workspace*</mat-label>
+                <mat-select (selectionChange)="changeWorkspace($event.value)">
+                  @for (workspace of workspaces; track workspace) {
+                    <mat-option [value]="workspace">{{workspace}}</mat-option>
+                  }
+                </mat-select>
+              </mat-form-field>
+              </div>
+
+              <div class="select">
+                <mat-form-field class="select_elem">
+                <mat-label>Style</mat-label>
+                <mat-select multiple (selectionChange)="changeStyle($event.value)">
+                  @for (style of styles; track style) {
+                    <mat-option [value]="style">{{style.name}}</mat-option>
+                  }
+                </mat-select>
+              </mat-form-field>
+              </div>
+
+              <form class="example-form ">
+                <!--<mat-form-field class="example-full-width" appearance="outline">
+                  <input matInput >
+                </mat-form-field>-->
+                <div class="radio">
+                    <label>Type: </label>
+                    <mat-radio-group   [(ngModel)]="selected" name="something">
+                      <mat-radio-button value="option1">Data Store</mat-radio-button>
+                      <mat-radio-button value="option2">Coverage Store</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+               <div class="btn"> 
+                 <button [disabled]="files.length==0 || selected == undefined " mat-flat-button color="success" class="black dpbtn" (click)="upload()"><p>Aggiungi layer</p></button>
+               </div>
+            </form>
+                <!--<button mat-flat-button color="success" class="black boton" (click)="upload()" [disabled]="selected ==undefined"> <mat-icon>add</mat-icon> <p>Aggiungi layer locale</p></button>-->
+            <!--</div>-->
+          </div>
+        </div>
+     </div>
+</div>
+

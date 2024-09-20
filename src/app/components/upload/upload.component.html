@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<div class="titulo-negro">
+    <p class="titulo-p">Upload style</p>
+    </div>
+    
+    <div class="contenedor-layer">
+         <div class="izquierda">
+            <ngx-dropzone (change)="onSelect($event)" class="dropZone">
+                <ngx-dropzone-label><div class="dragPlace"><span class="material-symbols-outlined">
+                    upload
+                    </span>
+                <p>Drag and drop</p>
+                </div></ngx-dropzone-label>
+                <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                    <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                </ngx-dropzone-preview>
+            </ngx-dropzone>
+
+            <form class="example-form ">
+                <!--<mat-form-field class="example-full-width" appearance="outline">
+                  <input matInput >
+                </mat-form-field>-->
+                <button [disabled]="files.length==0" mat-flat-button color="success" class="black dpbtn" (click)="uploadData()"><p>Aggiungi layer</p></button>
+            </form>
+    
+         </div>
+         <div class="derecha">
+            <div  appCesium class="mapa"></div>
+    
+            <!--<div class="container_info_layer">
+                <div class="header_info_layer">
+                    <p  class="negrita">Nome del Layer</p>
+                    <button mat-flat-button color="success" class="black boton"> <mat-icon>add</mat-icon> <p>Aggiungi layer su server</p></button>
+                </div>
+            </div>-->
+         </div>
+    </div>

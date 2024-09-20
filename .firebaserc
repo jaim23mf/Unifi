@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "Unifi": "logintest-b122a",
+    "default": "logintest-b122a"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
+}

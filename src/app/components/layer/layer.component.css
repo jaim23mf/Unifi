@@ -1,0 +1,202 @@
+
+.contenedor-layer{
+    top:40px;
+    display: flex;
+    position: absolute;
+    height: 100%;
+    background-color: white;
+}
+
+
+.example-form {
+    width: 100%;
+    min-width: 115px;
+    max-width: 379px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+
+.izquierda{ 
+    width: 500px;
+}
+
+.derecha{
+    width: 85%;
+    height: 100%;
+    margin: 25px;
+}
+
+.margen{
+  margin:10px;
+}
+
+.sub_margen{
+  border-bottom: 0px ;
+  border-left: 0px ;
+  border-right: 0px ;
+  border-radius: 0px !important;
+  margin: 5px;
+}
+
+.sub_layer{
+  border-bottom: 1px solid #898989;
+}
+
+.title_sub{
+  display: flex;
+}
+
+.sub_layer:first-child {
+  border-top: 1px solid #898989;
+}
+
+
+.sub_layer:last-child {
+  border-bottom: 0px solid #898989;
+}
+
+.add_icon{
+  float: right;
+  margin-top: 13px;
+  margin-right: 23px;
+  margin-bottom: 13px;
+  margin-left: 13px;
+  right: 0px;
+  position: absolute;
+}
+.container_info_layer{
+  display: flex;
+}
+.sub_izq{ width: 50%;}
+.sub_derecha{ width: 50%;}
+.header_info_layer{
+  display: block;
+  width: 100%;
+  height: 25px;
+}
+
+.select_elem{
+  margin-top: 10px;
+  max-width: 375px;
+  justify-content: center;
+}
+
+.boton{
+  width: fit-content;
+  float: right;
+  top: -53px;
+}
+
+.negrita{
+  font-weight: bold;
+}
+
+.info_layer{ 
+  text-align: justify;
+  margin-right: 30px;
+  margin-top: 35px;
+}
+
+.custom_input {
+	display: flex;
+	align-items: center;
+	position: relative;
+	max-width: 100%;
+}
+
+.input {
+	font-size: 18px;
+	padding: 5px 10px;
+	width: 100%;
+	padding-left: 35px;
+	outline: none;
+	background: #FFFFFF;
+	color: #000000;
+	border: 1px solid #C4D1EB;
+	border-radius: 5px;
+	box-shadow: 3px 3px 2px 0px #E2E2E2;
+	transition: .3s ease;
+}
+
+.input:focus {
+	background: #F2F2F2;
+	border-radius: 10px;
+}
+
+.input::placeholder {
+	color: #DDDDDD;
+}
+
+.svg_icon {
+	position: absolute;
+	right: 10px;
+	fill: #b2b2b2;
+	width: 18px;
+	height: 18px;
+}
+
+:host ::ng-deep .mdc-text-field--outlined {
+  --mdc-outlined-text-field-container-shape: 10px;
+}
+/*::ng-deep .mat-mdc-text-field-wrapper {
+  max-height: 35px;
+}
+
+::ng-deep .mat-mdc-form-field {
+  max-height: 45px;
+}
+*/
+/*::ng-deep .mat-mdc-form-field-infix {
+  padding: 7px !important;
+}*/
+
+::ng-deep .cesium-viewer {
+  border-radius: 15px;
+}
+
+.dropZone{
+  justify-content: center;
+  margin: 19px;
+    margin-left: 10px;
+    margin-top: 26px;
+    height: 475px;
+    border: 1px solid #898989;
+}
+
+:host ::ng-deep .mdc-text-field--outlined {
+  --mdc-outlined-text-field-container-shape: 10px;
+}
+
+
+.dpbtn{
+  height: 35px;
+    width: 125px;
+    font-size: 10px;
+    margin-top: 10px;
+    padding: 0px;
+}
+
+.btn{
+  display: grid;
+  justify-content: center;
+}
+.radio{
+  display: grid;
+  justify-content: center;
+}
+
+.select{
+  display: grid;
+}
+
+.hello
+.mat-mdc-dialog-container
+.mdc-dialog__container
+.mat-mdc-dialog-surface {
+background-color: red;
+}
